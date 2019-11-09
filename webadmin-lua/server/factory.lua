@@ -98,8 +98,9 @@ end
 -- name, string, title of page
 -- badge, string, badge content (optional)
 -- badgetype, string, badge type (optional, defaults to warning)
-FAQ.SidebarOption = function(page, icon, name, badge, badgetype)
-    return Node("li", {class = "nav-item"}, Node("a", {class = "nav-link", href = FAQ.GenerateDataUrl(page, {})}, {
+-- active, bool, highlight button as if it's the current page (optional)
+FAQ.SidebarOption = function(page, icon, name, badge, badgetype, active)
+    return Node("li", {class = "nav-item" .. (active and " open" or "")}, Node("a", {class = "nav-link" .. (active and " active" or ""), href = FAQ.GenerateDataUrl(page, {})}, {
         Node("i", {class = "nav-icon fa fa-" .. icon}, ""),
         " " .. name,
         badge and Badge(badgetype or "warning", badge) or "",
