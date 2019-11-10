@@ -18,6 +18,7 @@ provide 'webadmin-lua'
 
 server_script 'server/utils/*.lua'
 server_script 'server/factory.lua'
+server_script 'server/updatecheck.lua'
 
 server_export 'getFactory'
 
